@@ -1,0 +1,12 @@
+<?php
+namespace App\Http\Controllers\home;
+use App\Http\Controllers\controller;
+use DB,Input;
+class IndexController extends Controller
+{
+	public function index()
+	{
+		return view('home\default');
+	}
+}
+?>
