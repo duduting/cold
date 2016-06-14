@@ -24,6 +24,8 @@ Route::get('home/album', 'home\AlbumController@album');
 Route::get('home/family', 'home\FamilyController@family');
 Route::get('home/connect', 'home\ConnectController@connect');
 Route::get('home/album_more', 'home\Album_moreController@album_more');
+Route::get('home/add_meeting', 'home\MeetingController@add_meeting');
+
 //后台的展示
 Route::get('admin/indexs', 'admin\IndexController@index');
 Route::get('admin/top', 'admin\IndexController@top');

@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
-<base href="http://localhost/cold drink/public/home/" />
+<base href="http://localhost/cold/colddrink/public/home/" />
 <link href="index/css/iscroll.css" rel="stylesheet" type="text/css" />
 <link href="index/css/cate/cate16_3.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="index/css/plugmenu.css">
