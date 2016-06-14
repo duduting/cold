@@ -17,6 +17,7 @@
 // });
 //前台首页的展示
 Route::get('/', 'home\IndexController@index');
+Route::get('home/indexs', 'home\IndexController@index');
 Route::get('home/introduce', 'home\IntroController@introduce');
 Route::get('home/brand', 'home\BrandController@brand');
 Route::get('home/album', 'home\AlbumController@album');
