@@ -6,7 +6,7 @@ class IntroController extends Controller
 {
 	public function introduce()
 	{
-		return view('home\jieshao');
+		return view('home/jieshao');
 	}
 }
 ?>

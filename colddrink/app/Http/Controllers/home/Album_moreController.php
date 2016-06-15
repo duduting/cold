@@ -6,7 +6,7 @@ class Album_moreController extends Controller
 {
 	public function album_more()
 	{
-		return view('home\xiangcemore');
+		return view('home/xiangcemore');
 	}
 }
 ?>

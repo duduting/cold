@@ -6,7 +6,7 @@ class FamilyController extends Controller
 {
 	public function family()
 	{
-		return view('home\jaimeng');
+		return view('home/jaimeng');
 	}
 }
 ?>

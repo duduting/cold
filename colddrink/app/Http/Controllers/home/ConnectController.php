@@ -6,7 +6,7 @@ class ConnectController extends Controller
 {
 	public function connect()
 	{
-		return view('home\lianxi');
+		return view('home/lianxi');
 	}
 }
 ?>

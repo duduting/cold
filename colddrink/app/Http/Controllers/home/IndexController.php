@@ -6,7 +6,7 @@ class IndexController extends Controller
 {
 	public function index()
 	{
-		return view('home\default');
+		return view('home/default');
 	}
 }
 ?>

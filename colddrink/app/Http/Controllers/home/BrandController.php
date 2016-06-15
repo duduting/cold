@@ -6,7 +6,7 @@ class BrandController extends Controller
 {
 	public function brand()
 	{
-		return view('home\pinpai');
+		return view('home/pinpai');
 	}
 }
 ?>
