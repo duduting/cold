@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
 <meta charset="utf-8">
-<base href="http://localhost/cold/colddrink/public/home/" />
+<base href="/home/" />
 <link href="index/css/news/news1_3.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="index/css/plugmenu.css">
 <script src="index/audiojs/audio.min.js" type="text/javascript"></script>
