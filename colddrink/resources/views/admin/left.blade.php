@@ -36,18 +36,20 @@ $(function(){
         
     <dd>
     <div class="title">
-    <span><img src="images/leftico01.png" /></span>公司管理
+    <span><img src="images/leftico01.png" /></span>会议助手
     </div>
     	<ul class="menuson">
-            <li><cite></cite><a href="right.html" target="rightFrame">违纪列表</a><i></i></li>
-            <li><cite></cite><a href="right.html" target="rightFrame">回收站</a><i></i></li>
+            <li><cite></cite><a href="add_meeting" target="rightFrame">新建会议</a><i></i></li>
+            <li><cite></cite><a href="meeting_list" target="rightFrame">会议列表</a><i></i></li>
+            <li><cite></cite><a href="meeting_room" target="rightFrame">新建会议室</a><i></i></li>
+            <li><cite></cite><a href="meeting_room_list" target="rightFrame">会议室列表</a><i></i></li>
         </ul>    
     </dd>
         
     
     <dd>
     <div class="title">
-    <span><img src="images/leftico02.png" /></span>品牌管理
+    <!-- <span><img src="images/leftico02.png" /></span>通讯录管理 -->
     </div>
         <!--
     <ul class="menuson">
@@ -59,19 +61,19 @@ $(function(){
     </dd> 
     
     
-    <dd><div class="title"><span><img src="images/leftico03.png" /></span>产品管理</div>
-        <!--
+    <dd><div class="title"><span><img src="images/leftico03.png" /></span>通讯录管理</div>
+        
     <ul class="menuson">
-        <li><cite></cite><a href="#">自定义</a><i></i></li>
-        <li><cite></cite><a href="#">常用资料</a><i></i></li>
+        <li><cite></cite><a href="#">通讯人列表</a><i></i></li>
+       <!--  <li><cite></cite><a href="#">常用资料</a><i></i></li>
         <li><cite></cite><a href="#">信息列表</a><i></i></li>
-        <li><cite></cite><a href="#">其他</a><i></i></li>
+        <li><cite></cite><a href="#">其他</a><i></i></li> -->
     </ul>
-    -->
+    
     </dd>  
     
     
-    <dd><div class="title"><span><img src="images/leftico04.png" /></span>招商加盟</div>
+    <!-- <dd><div class="title"><span><img src="images/leftico04.png" /></span>招商加盟</div> -->
         <!--
     <ul class="menuson">
         <li><cite></cite><a href="#">自定义</a><i></i></li>
