@@ -1,26 +1,17 @@
 <?php
 	$access_token = getAccessToken();
 	// print_r($access_token);
+    $corpId = 'wxdecbe577e44e61b6';
+    $address = "";
 	$agentId = 10;
+    $url1 = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$corpId&redirect_uri=&response_type=code&scope=SCOPE&state=STATE#wechat_redirect";
 	$url = "https://qyapi.weixin.qq.com/cgi-bin/menu/create?access_token=$access_token&agentid=$agentId";
 	$arr = '{
     "button": [
         {
-            "name": "扫码", 
-            "sub_button": [
-                {
-                    "type": "scancode_waitmsg", 
-                    "name": "扫码带提示", 
-                    "key": "rselfmenu_0_0", 
-                    "sub_button": [ ]
-                }, 
-                {
-                    "type": "scancode_push", 
-                    "name": "扫码推事件", 
-                    "key": "rselfmenu_0_1", 
-                    "sub_button": [ ]
-                }
-            ]
+            "name": "签到打卡", 
+            "type": "view",
+            "url" : "http://www.baidu.com"
         }, 
         {
             "name": "发图", 
@@ -52,7 +43,7 @@
         }
     ]
 }';
-
+    echo sendMsg($url,$arr);
 	function sendMsg ( $url, $sendData )
     {
         $ch = curl_init ();

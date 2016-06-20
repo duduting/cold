@@ -2,6 +2,7 @@
 <html> 
 <head> 
   <meta charset="utf-8"> 
+  <base href="/admin/" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.selectlist.css">
     <link rel="stylesheet" href="boot/css/bootstrap.css">
