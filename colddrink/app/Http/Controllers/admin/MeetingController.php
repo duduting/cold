@@ -19,7 +19,7 @@ class MeetingController extends Controller
 	public function meeting_room()
 	{
 		$code = $_GET['code'];
-		$access_token = getAccessToken();
+		$access_token = $this->getAccessToken();
 		$url = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=$access_token&code=$code";
 		echo file_get_contents($url);die;
 		// return view('admin/meeting_room');
