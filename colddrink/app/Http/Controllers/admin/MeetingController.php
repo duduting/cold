@@ -18,7 +18,11 @@ class MeetingController extends Controller
 	// 添加会议室列表
 	public function meeting_room()
 	{
-		return view('admin/meeting_room');
+		$code = $_GET['code'];
+		$access_token = getAccessToken();
+		$url = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=$access_token&code=$code";
+		echo file_get_contents($url);die;
+		// return view('admin/meeting_room');
 	}
 	//会议室的添加
 	public function add_meeting_room()
@@ -81,6 +85,24 @@ class MeetingController extends Controller
 			echo "<script>alert('修改成功！请返回列表查看')</script>";
 			return Redirect::action('admin\MeetingController@meeting_room_list');
 		}
+	}
+
+	public function getAccessToken()
+	{
+		if(isset($_SESSION['access_token']) && $_SESSION['expires_in']+7200>time())
+		{
+			return $_SESSION['access_token'];
+			die;	
+		}
+		$corpId = 'wxdecbe577e44e61b6';
+		$Secret = 'gUy4FjF5xJWFUcdSRvpidg7F0mMOHyg055EFzSjfUhncr_9HSJBCYBbtvgnwA6qt';
+		$url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid='.$corpId.'&corpsecret='.$Secret;
+		$data = file_get_contents($url);
+		$arr = json_decode($data,true);
+		// return $arr;
+		$_SESSION['access_token'] = $arr['access_token'];
+		$_SESSION['expires_in'] = time();
+		return $arr['access_token'];
 	}
 
 }

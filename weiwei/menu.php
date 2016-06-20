@@ -2,16 +2,17 @@
 	$access_token = getAccessToken();
 	// print_r($access_token);
     $corpId = 'wxdecbe577e44e61b6';
-    $address = "";
+    $address = urlencode('http://118.192.138.230:8081/index.php/admin/meeting_room');
 	$agentId = 10;
-    $url1 = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$corpId&redirect_uri=&response_type=code&scope=SCOPE&state=STATE#wechat_redirect";
-	$url = "https://qyapi.weixin.qq.com/cgi-bin/menu/create?access_token=$access_token&agentid=$agentId";
+    $url1 = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$corpId.'&redirect_uri='.$address.'&response_type=code&scope=snsapi_base#wechat_redirect';
+	// echo $url1;die;
+    $url = "https://qyapi.weixin.qq.com/cgi-bin/menu/create?access_token=$access_token&agentid=$agentId";
 	$arr = '{
     "button": [
         {
             "name": "签到打卡", 
             "type": "view",
-            "url" : "http://www.baidu.com"
+            "url" : "'.$url1.'"
         }, 
         {
             "name": "发图", 
