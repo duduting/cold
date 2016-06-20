@@ -3,8 +3,8 @@
 include_once "WXBizMsgCrypt.php";
 
 // 假设企业号在公众平台上设置的参数如下
-$encodingAesKey = "vqktblCAIVbMi2kSeZIallphaJCky7oWd7AqhjTM16S";
-$token = "Y6TT9OUErysG4";
+$encodingAesKey = "WtCbtrHlDh0byh6qC7ZmYomJOprKXrgJNrWsHvhUp1s";
+$token = "uAeN8ppm9RDW";
 $corpId = "wxdecbe577e44e61b6";
 
 /*
@@ -23,27 +23,27 @@ $corpId = "wxdecbe577e44e61b6";
 
 */
 
-// $sVerifyMsgSig = $_GET["msg_signature"];
-// // $sVerifyMsgSig = "5c45ff5e21c57e6ad56bac8758b79b1d9ac89fd3";
-// $sVerifyTimeStamp = $_GET["timestamp"];
-// // $sVerifyTimeStamp = "1409659589";
-// $sVerifyNonce = $_GET["nonce"];
-// // $sVerifyNonce = "263014780";
-// $sVerifyEchoStr = $_GET["echostr"];
-// // $sVerifyEchoStr = "P9nAzCzyDtyTWESHep1vC5X9xho/qYX3Zpb4yKa9SKld1DsH3Iyt3tP3zNdtp+4RPcs8TgAE7OaBO+FZXvnaqQ==";
+$sVerifyMsgSig = $_GET["msg_signature"];
+// $sVerifyMsgSig = "5c45ff5e21c57e6ad56bac8758b79b1d9ac89fd3";
+$sVerifyTimeStamp = $_GET["timestamp"];
+// $sVerifyTimeStamp = "1409659589";
+$sVerifyNonce = $_GET["nonce"];
+// $sVerifyNonce = "263014780";
+$sVerifyEchoStr = $_GET["echostr"];
+// $sVerifyEchoStr = "P9nAzCzyDtyTWESHep1vC5X9xho/qYX3Zpb4yKa9SKld1DsH3Iyt3tP3zNdtp+4RPcs8TgAE7OaBO+FZXvnaqQ==";
 
-// // 需要返回的明文
-// $sEchoStr = "";
+// 需要返回的明文
+$sEchoStr = "";
 
-// $wxcpt = new WXBizMsgCrypt($token, $encodingAesKey, $corpId);
-// $errCode = $wxcpt->VerifyURL($sVerifyMsgSig, $sVerifyTimeStamp, $sVerifyNonce, $sVerifyEchoStr, $sEchoStr);
-// if ($errCode == 0) {
-// 	//
-// 	// 验证URL成功，将sEchoStr返回
-// 	echo $sEchoStr;
-// } else {
-// 	print("ERR: " . $errCode . "\n\n");
-// }
+$wxcpt = new WXBizMsgCrypt($token, $encodingAesKey, $corpId);
+$errCode = $wxcpt->VerifyURL($sVerifyMsgSig, $sVerifyTimeStamp, $sVerifyNonce, $sVerifyEchoStr, $sEchoStr);
+if ($errCode == 0) {
+	//
+	// 验证URL成功，将sEchoStr返回
+	echo $sEchoStr;
+} else {
+	print("ERR: " . $errCode . "\n\n");
+}
 
 /*
 ------------使用示例二：对用户回复的消息解密---------------
@@ -63,5 +63,6 @@ Content-Length: 613
 3.将post请求的数据进行xml解析，并将<Encrypt>标签的内容进行解密，解密出来的明文即是用户回复消息的明文，明文格式请参考官方文档
 第2，3步可以用公众平台提供的库函数DecryptMsg来实现。
 */
+
 
 

@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', loaded, false);
 
 <body id="cate16">
 <iframe src="@ac=cookie&c=fromUsername" width="0" height="0" frameborder="0" ></iframe>
-<div class="mainbg"><img src="weixin/index.jpg"></div>
+<div class="mainbg"><img src="weixin/11.jpg"></div>
 <div class="mainmenu">
   <ul>
     <li>
@@ -124,7 +124,7 @@ document.getElementById("thelist").getElementsByTagName("img").item(i).style.css
 <script type="text/javascript">
  	        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
         	window.shareData = {  
-            "imgUrl": "weixin/home.jpg", 
+            "imgUrl": "weixin/11.jpg", 
             "timeLineLink": "wxapi.php@ac=cate16&tid=569&from=app",
             "sendFriendLink": "wxapi.php@ac=cate16&tid=569&from=app",
             "weiboLink": "wxapi.php@ac=cate16&tid=569&from=app",
