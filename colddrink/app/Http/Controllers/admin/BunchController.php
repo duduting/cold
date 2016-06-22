@@ -17,18 +17,18 @@
 				$url = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=$access_token&code=$code";
 				$str = file_get_contents($url);
 				$arr = json_decode($str,true);
-				print_r($arr);die;
+				// print_r($arr);die;
 				$userid = $arr['UserId'];
+				//获取用户名
 				$url1 = "https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token=$access_token&userid=$userid";
+				$strs = file_get_contents($url1);
+				$data = json_decode($strs,true);
 				//获取sapi_ticket 
 				$ticket_url = "https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token=$access_token";
 				echo file_get_contents($ticket_str);
 				die;
 				$ticket_data = json_decode($ticket_data);
 				// print_r($ticket_data);die;
-				//获取用户名
-				$strs = file_get_contents($url1);
-				$data = json_decode($strs,true);
 				return view('admin/bunch',['data'=>$data]);
 			}
 			else
