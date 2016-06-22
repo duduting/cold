@@ -47,19 +47,17 @@ $(function(){
         </ul>    
     </dd>
         
-    
     <dd>
     <div class="title">
-    <!-- <span><img src="images/leftico02.png" /></span>通讯录管理 -->
+    <span><img src="images/leftico01.png" /></span>打卡签到
     </div>
-        <!--
-    <ul class="menuson">
-        <li><cite></cite><a href="#">编辑内容</a><i></i></li>
-        <li><cite></cite><a href="#">发布信息</a><i></i></li>
-        <li><cite></cite><a href="#">档案列表显示</a><i></i></li>
-        </ul>
-        -->
-    </dd> 
+        <ul class="menuson">
+            <li><cite></cite><a href="role_list" target="rightFrame">考勤规则列表</a><i></i></li>
+            <li><cite></cite><a href="bunch_list" target="rightFrame">员工打卡列表</a><i></i></li>
+            <li><cite></cite><a href="bunch_index" target="rightFrame">员工打卡页面</a><i></i></li>
+            <li><cite></cite><a href="bu_bunch_list" target="rightFrame">员工补打卡记录</a><i></i></li>
+        </ul>    
+    </dd>
     
     
     <dd><div class="title"><span><img src="images/leftico03.png" /></span>通讯录管理</div>

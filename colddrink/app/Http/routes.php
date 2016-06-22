@@ -29,6 +29,10 @@ Route::get('admin/connect_list', 'admin\ConnectController@connect_list');
 Route::post('admin/add_meeting_room', 'admin\MeetingController@add_meeting_room');
 Route::post('admin/update_room', 'admin\MeetingController@update_room');
 Route::get('admin/update_meeting_room', 'admin\MeetingController@update_meeting_room');
+Route::get('admin/rule_list', 'admin\RuleController@rule_list');
+Route::get('admin/rule_index', 'admin\RuleController@rule_index');
+Route::post('admin/add_rule', 'admin\RuleController@add_rule');
+Route::get('admin/bunch_index', 'admin\BunchController@bunch_index');
 
 
 //前台首页的展示

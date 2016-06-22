@@ -18,11 +18,17 @@ class MeetingController extends Controller
 	// 添加会议室列表
 	public function meeting_room()
 	{
-		$code = $_GET['code'];
-		$access_token = $this->getAccessToken();
-		$url = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=$access_token&code=$code";
-		echo file_get_contents($url);die;
-		// return view('admin/meeting_room');
+		// $code = $_GET['code'];
+		if(!empty($_GET['code']))
+		{
+			$access_token = $this->getAccessToken();
+			$url = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=$access_token&code=$code";
+			echo file_get_contents($url);die;
+		}
+		else
+		{
+		    return view('admin/meeting_room');
+		}
 	}
 	//会议室的添加
 	public function add_meeting_room()

@@ -3,39 +3,22 @@
 	// print_r($access_token);
     $corpId = 'wxdecbe577e44e61b6';
     $address = urlencode('http://118.192.138.230:8081/index.php/admin/meeting_room');
+    $da_address = urlencode('http://118.192.138.230:8081/index.php/admin/bunch_index');
 	$agentId = 10;
     $url1 = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$corpId.'&redirect_uri='.$address.'&response_type=code&scope=snsapi_base#wechat_redirect';
-	// echo $url1;die;
+	$url2 = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$corpId.'&redirect_uri='.$da_address.'&response_type=code&scope=snsapi_base#wechat_redirect';
     $url = "https://qyapi.weixin.qq.com/cgi-bin/menu/create?access_token=$access_token&agentid=$agentId";
 	$arr = '{
     "button": [
         {
             "name": "签到打卡", 
             "type": "view",
-            "url" : "'.$url1.'"
+            "url" : "'.$url2.'"
         }, 
         {
-            "name": "发图", 
-            "sub_button": [
-                {
-                    "type": "pic_sysphoto", 
-                    "name": "系统拍照发图", 
-                    "key": "rselfmenu_1_0", 
-                   "sub_button": [ ]
-                 }, 
-                {
-                    "type": "pic_photo_or_album", 
-                    "name": "拍照或者相册发图", 
-                    "key": "rselfmenu_1_1", 
-                    "sub_button": [ ]
-                }, 
-                {
-                    "type": "pic_weixin", 
-                    "name": "微信相册发图", 
-                    "key": "rselfmenu_1_2", 
-                    "sub_button": [ ]
-                }
-            ]
+            "name": "打卡记录", 
+            "type": "view",
+            "url" : "'.$url1.'"
         }, 
         {
             "name": "发送位置", 
