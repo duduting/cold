@@ -59,7 +59,7 @@
 		var url = "sign_on";
 		var data = {'userid':userid};
 		$.post(url,data,function(res){
-				alert(res);
+				// alert(res);
 		});
 	}
 
