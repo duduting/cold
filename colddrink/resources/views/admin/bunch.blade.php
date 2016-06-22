@@ -29,12 +29,21 @@
 		margin-bottom: 5px;
 		/*font-family: ""Times New Roman",Georgia,Serif;*/
 	}
+	.wrap2{
+		height:40px;
+		font-size: 20px;
+		margin-top: 0px;
+		text-align: center;
+		color: #04be02;
+		margin-bottom: 5px;
+	}
   </style>
 </head>
 <body>
   <h1></h1>
   <div class="wrap"></div>
   <div class="wrap1"></div>
+  <div class="wrap2"><?php echo $data['name'];?></div>
   <input type="hidden" name="" id="timer" value="<?php echo time(); ?>">
   <input type="submit" class="weui_btn weui_btn_primary" value="签到">
 </body>

@@ -20,7 +20,9 @@
 				// print_r($arr);die;
 				$userid = $arr['UserId'];
 				$url1 = "https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token=$access_token&userid=$userid";
-				echo file_get_contents($url1);
+				$strs = file_get_contents($url1);
+				$data = json_decode($strs,true);
+				return view('admin/bunch',['data'=>$data]);
 			}
 			else
 			{
