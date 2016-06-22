@@ -12,9 +12,10 @@
 		{	
 			if(!empty($_GET['code']))
 			{
+				$code = $_GET['code'];
 				$access_token = $this->getAccessToken();
 				$url = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=$access_token&code=$code";
-				echo file_get_contents($url);die;
+				echo file_get_contents($url);
 			}
 			else
 			{
