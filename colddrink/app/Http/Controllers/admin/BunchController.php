@@ -15,7 +15,11 @@
 				$code = $_GET['code'];
 				$access_token = $this->getAccessToken();
 				$url = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=$access_token&code=$code";
-				echo file_get_contents($url);
+				$str = file_get_contents($url);
+				$arr = json_decode($str,'true');
+				$userid = $arr['UserId'];
+				$url1 = "https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token=$access_token&userid='$userid'";
+				echo file_get_contents($url1);
 			}
 			else
 			{
