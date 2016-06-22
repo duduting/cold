@@ -44,12 +44,25 @@
   <h1></h1>
   <div class="wrap"></div>
   <div class="wrap1"></div>
-  <div class="wrap2"><?php echo $data['name'];?></div>
+  <div class="wrap2"><?php if(isset($data['name'])){ echo $data['name'];} ?></div>
+  <input type="hidden" name="" id="userid" value="<?php if(isset($data['UserId'])){ echo $data['UserId'];} ?>">
   <input type="hidden" name="" id="timer" value="<?php echo time(); ?>">
-  <input type="submit" class="weui_btn weui_btn_primary" value="签到">
+  <input type="button" onclick="sign_on()" class="weui_btn weui_btn_primary" value="签到">
 </body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
 <script src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
+	//签到
+	function sign_on()
+	{
+		var userid = $("#userid").val();
+		var url = "sign_on";
+		var data = {'userid':userid};
+		$.post(url,data,function(res){
+				alert(res);
+		});
+	}
+
 	$(function(){
 		timerout();
 	})

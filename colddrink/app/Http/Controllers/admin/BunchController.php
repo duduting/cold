@@ -20,6 +20,12 @@
 				// print_r($arr);die;
 				$userid = $arr['UserId'];
 				$url1 = "https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token=$access_token&userid=$userid";
+				//获取sapi_ticket 
+				$ticket_url = "https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token=$access_token";
+				$ticket_str = file_get_contents($ticket_str);
+				$ticket_data = json_decode($ticket_data);
+				print_r($ticket_data);die;
+				//获取用户名
 				$strs = file_get_contents($url1);
 				$data = json_decode($strs,true);
 				return view('admin/bunch',['data'=>$data]);
@@ -29,7 +35,14 @@
 			    return view('admin/bunch');
 			}
 		}
+		/**
+		*	完成打卡                                                       
+		**/
+		public function sign_on()
+		{
+			$userid = Input::get('userid');
 
+		}
 		/**
 		*获取accessToken
 		**/
