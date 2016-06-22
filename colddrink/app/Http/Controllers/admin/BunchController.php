@@ -23,8 +23,9 @@
 				//获取sapi_ticket 
 				$ticket_url = "https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token=$access_token";
 				$ticket_str = file_get_contents($ticket_str);
+				echo $ticket_str;die;
 				$ticket_data = json_decode($ticket_data);
-				print_r($ticket_data);die;
+				// print_r($ticket_data);die;
 				//获取用户名
 				$strs = file_get_contents($url1);
 				$data = json_decode($strs,true);
