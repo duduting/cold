@@ -24,19 +24,24 @@
 				$strs = file_get_contents($url1);
 				$data = json_decode($strs,true);
 				//获取sapi_ticket 
-				$ticket_url = "https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token=$access_token";
-				echo file_get_contents($ticket_url);
-				die;
-				$ticket_data = json_decode($ticket_data);
-				// print_r($ticket_data);die;
-				return view('admin/bunch',['data'=>$data]);
+				$ti_data['ticket'] = $this->getTicket();
+				$ti_data['noncestr'] = 'Wm3WZYTPz0wzccnW';
+				$ti_data['timestamp'] = time();
+				$ti_data['url'] = "http://118.192.138.230:8081/admin/bunch_index";
+				$ti_data['corpId'] = 'wxdecbe577e44e61b6';
+				$ti_data['signature'] = sha1("jsapi_ticket=$ti_data[ticket]&noncestr=Wm3WZYTPz0wzccnW&timestamp=$ti_data[timestamp]&url=$ti_data[url]");
+				// print_r($ti_data);die;
+				return view('admin/bunch',['data'=>$data,'ti_data'=>$ti_data]);
 			}
 			else
 			{
-				// $access_token = $this->getAccessToken();
-				// $ticket_url = "https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token=$access_token";
-				// echo file_get_contents($ticket_str);
-				// die;
+				// $ti_data['ticket'] = $this->getTicket();
+				// $ti_data['noncestr'] = 'Wm3WZYTPz0wzccnW';
+				// $ti_data['timestamp'] = time();
+				// $ti_data['url'] = "http://118.192.138.230:8081/admin/bunch_index";
+				// $ti_data['corpId'] = 'wxdecbe577e44e61b6';
+				// $ti_data['signature'] = sha1("jsapi_ticket=$ti_data[ticket]&noncestr=Wm3WZYTPz0wzccnW&timestamp=$ti_data[timestamp]&url=$ti_data[url]");
+				// print_r($ti_data);die;
 			    return view('admin/bunch');
 			}
 		}
@@ -67,6 +72,25 @@
 			$_SESSION['access_token'] = $arr['access_token'];
 			$_SESSION['expires_in'] = time();
 			return $arr['access_token'];
+		}
+		/**
+		*获取js SDK
+		**/
+		public function getTicket()
+		{
+			if(isset($_SESSION['ticket']) && $_SESSION['expires_in']+7200>time())
+			{
+				return $_SESSION['ticket'];
+				die;	
+			}
+			$access_token = $this->getAccessToken();
+			$url = "https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token=$access_token";
+			$data = file_get_contents($url);
+			$arr = json_decode($data,true);
+			// return $arr;
+			$_SESSION['ticket'] = $arr['ticket'];
+			$_SESSION['ticket'] = time();
+			return $arr['ticket'];
 		}
 	}
 
