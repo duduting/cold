@@ -25,7 +25,7 @@
 				$data = json_decode($strs,true);
 				//获取sapi_ticket 
 				$ticket_url = "https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token=$access_token";
-				echo file_get_contents($ticket_str);
+				echo file_get_contents($ticket_url);
 				die;
 				$ticket_data = json_decode($ticket_data);
 				// print_r($ticket_data);die;
@@ -33,6 +33,10 @@
 			}
 			else
 			{
+				// $access_token = $this->getAccessToken();
+				// $ticket_url = "https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token=$access_token";
+				// echo file_get_contents($ticket_str);
+				// die;
 			    return view('admin/bunch');
 			}
 		}
