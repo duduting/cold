@@ -14,6 +14,7 @@
 			{
 				$code = $_GET['code'];
 				$access_token = $this->getAccessToken();
+				// echo $access_token;die;
 				$url = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=$access_token&code=$code";
 				$str = file_get_contents($url);
 				$arr = json_decode($str,true);
@@ -24,22 +25,25 @@
 				$strs = file_get_contents($url1);
 				$data = json_decode($strs,true);
 				//获取sapi_ticket 
-				$ti_data['ticket'] = $this->getTicket();
-				$ti_data['noncestr'] = 'Wm3WZYTPz0wzccnW';
-				$ti_data['timestamp'] = time();
-				$ti_data['url'] = "http://118.192.138.230:8081/admin/bunch_index";
-				$ti_data['corpId'] = 'wxdecbe577e44e61b6';
-				$ti_data['signature'] = sha1("jsapi_ticket=$ti_data[ticket]&noncestr=Wm3WZYTPz0wzccnW&timestamp=$ti_data[timestamp]&url=$ti_data[url]");
-				// print_r($ti_data);die;
-				return view('admin/bunch',['data'=>$data,'ti_data'=>$ti_data]);
-			}
-			else
-			{
 				// $ti_data['ticket'] = $this->getTicket();
 				// $ti_data['noncestr'] = 'Wm3WZYTPz0wzccnW';
 				// $ti_data['timestamp'] = time();
 				// $ti_data['url'] = "http://118.192.138.230:8081/admin/bunch_index";
 				// $ti_data['corpId'] = 'wxdecbe577e44e61b6';
+				// $ti_data['signature'] = sha1("jsapi_ticket=$ti_data[ticket]&noncestr=Wm3WZYTPz0wzccnW&timestamp=$ti_data[timestamp]&url=$ti_data[url]");
+				// print_r($ti_data);die;
+				return view('admin/bunch',['data'=>$data]);
+			}
+			else
+			{
+				// $access_token = $this->getAccessToken();
+				// // echo $access_token;
+				// $ti_data['ticket'] = $this->getTicket();
+				// $ti_data['noncestr'] = 'Wm3WZYTPz0wzccnW';
+				// $ti_data['timestamp'] = time();
+				// $ti_data['url'] = "http://118.192.138.230:8081/admin/bunch_index";
+				// $ti_data['corpId'] = 'wxdecbe577e44e61b6';
+				// $ti_data['access_token'] = $access_token;
 				// $ti_data['signature'] = sha1("jsapi_ticket=$ti_data[ticket]&noncestr=Wm3WZYTPz0wzccnW&timestamp=$ti_data[timestamp]&url=$ti_data[url]");
 				// print_r($ti_data);die;
 			    return view('admin/bunch');
@@ -51,7 +55,27 @@
 		public function sign_on()
 		{
 			$userid = Input::get('userid');
-
+			$username = Input::get('user_name');
+			$add_time = time();
+			$sql = "insert into user_signon(user_id,user_name,add_time) values(null,'$user_id','$username','$add_time')";
+			$res = DB::insert($sql);
+			if($res)
+			{
+				$sql = "update user_signon set user_status = 1";
+				$re = DB::update($sql);
+				if($re)
+				{
+					echo 1;
+				}
+				else
+				{
+					echo 0;
+				}
+			}
+			else
+			{
+				echo "<script>alert('签到失败');</script>";
+			}
 		}
 		/**
 		*获取accessToken

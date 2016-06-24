@@ -33,6 +33,7 @@ Route::get('admin/rule_list', 'admin\RuleController@rule_list');
 Route::get('admin/rule_index', 'admin\RuleController@rule_index');
 Route::post('admin/add_rule', 'admin\RuleController@add_rule');
 Route::get('admin/bunch_index', 'admin\BunchController@bunch_index');
+Route::post('admin/sign_on', 'admin\BunchController@sign_on');
 
 
 //前台首页的展示
