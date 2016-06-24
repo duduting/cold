@@ -18,7 +18,7 @@
 				$url = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=$access_token&code=$code";
 				$str = file_get_contents($url);
 				$arr = json_decode($str,true);
-				print_r($arr);die;
+				// print_r($arr);die;
 				$userid = $arr['UserId'];
 				//获取用户名
 				$url1 = "https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token=$access_token&userid=$userid";
@@ -31,7 +31,7 @@
 				// $ti_data['url'] = "http://118.192.138.230:8081/admin/bunch_index";
 				// $ti_data['corpId'] = 'wxdecbe577e44e61b6';
 				// $ti_data['signature'] = sha1("jsapi_ticket=$ti_data[ticket]&noncestr=Wm3WZYTPz0wzccnW&timestamp=$ti_data[timestamp]&url=$ti_data[url]");
-				// print_r($ti_data);die;
+				// print_r($data);die;
 				return view('admin/bunch',['data'=>$data]);
 			}
 			else

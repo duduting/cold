@@ -46,7 +46,7 @@
   <div class="wrap1"></div>
   <div class="wrap2"><?php if(isset($data['name'])){ echo $data['name'];} ?></div>
   <input type="hidden" name="" id="username" value="<?php if(isset($data['name'])){ echo $data['name'];} ?>">
-  <input type="hidden" name="" id="userid" value="<?php if(isset($data['UserId'])){ echo $data['UserId'];} ?>">
+  <input type="hidden" name="" id="userid" value="<?php if(isset($data['userid'])){ echo $data['userid'];} ?>">
   <input type="hidden" name="" id="timer" value="<?php echo time(); ?>">
   <input type="button" onclick="sign_on()" class="weui_btn weui_btn_primary" value="签到">
   <div class="weui_icon_area" style="z-index=1;text-align:center;display:none;">
