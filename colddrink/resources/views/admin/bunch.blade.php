@@ -117,12 +117,16 @@
 		$.post(url,data,function(res){
 				if(res == 1)
 				{
-					// alert(1);
-					$(".weui_icon_area").css('display','block');
-					setTimeout(function(){//定时器 
-						$(".weui_icon_area").css("display","none");//将图片的display属性设置为none
-						},
-					3000);//设置三千毫秒即3秒
+					alert("签到成功");
+					// $(".weui_icon_area").css('display','block');
+					// setTimeout(function(){//定时器 
+					// 	$(".weui_icon_area").css("display","none");//将图片的display属性设置为none
+					// 	},
+					// 3000);//设置三千毫秒即3秒
+				}
+				else
+				{
+					alert("签到失败！请重新签到");
 				}
 		});
 	}

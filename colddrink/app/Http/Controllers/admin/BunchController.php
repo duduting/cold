@@ -57,6 +57,18 @@
 			$userid = Input::get('userid');
 			$username = Input::get('user_name');
 			$add_time = time();
+			$sql = "select user_id,add_time from user_signon where user_id = $user_id";
+			$ars = DB::select($sql);
+			// $new_time = date('Y-m-d H:i:s',$add_time);
+			foreach($ars as $key=>$val)
+			{
+				$timer= $val['add_time'];
+				$user_id = $val['user_id'];
+				if($user_id == $userid && $add_time-$timer<180)
+				{
+					echo "<script>alert('您已经签到！');</script>";die;
+				}
+			}
 			$sql = "insert into user_signon(user_id,user_name,add_time) values('$userid','$username','$add_time')";
 			$res = DB::insert($sql);
 			if($res)
