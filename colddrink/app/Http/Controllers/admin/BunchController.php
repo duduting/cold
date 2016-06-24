@@ -57,7 +57,7 @@
 			$userid = Input::get('userid');
 			$username = Input::get('user_name');
 			$add_time = time();
-			$sql = "insert into user_signon(user_id,user_name,add_time) values(null,'$user_id','$username','$add_time')";
+			$sql = "insert into user_signon(user_id,user_name,add_time) values(null,'$userid','$username','$add_time')";
 			$res = DB::insert($sql);
 			if($res)
 			{
