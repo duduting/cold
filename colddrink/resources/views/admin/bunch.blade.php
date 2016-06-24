@@ -117,10 +117,10 @@
 				if(res == 1)
 				{
 					$(".weui_icon_area").css('display','block');
-					setTimeout(function(){//定时器 
-						$(".weui_icon_area").css("display","none");//将图片的display属性设置为none
-						},
-					3000);//设置三千毫秒即3秒
+					// setTimeout(function(){//定时器 
+					// 	$(".weui_icon_area").css("display","none");//将图片的display属性设置为none
+					// 	},
+					// 3000);//设置三千毫秒即3秒
 				}
 		});
 	}
