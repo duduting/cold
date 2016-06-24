@@ -109,12 +109,12 @@
 		//     }
 		// });
 		// alert(accuracy);
-		// var userid = $("#userid").val();
+		var userid = $("#userid").val();
 		// alert(userid);
-		// var user_name = $("#username").val();
+		var user_name = $("#username").val();
 		var url = "sign_on";
-		// var data = {'userid':userid,'user_name':user_name};
-		$.post(url,function(res){
+		var data = {'userid':userid,'user_name':user_name};
+		$.post(url,data,function(res){
 				if(res == 1)
 				{
 					alert(1);
