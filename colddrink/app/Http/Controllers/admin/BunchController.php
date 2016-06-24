@@ -54,8 +54,8 @@
 		**/
 		public function sign_on()
 		{
-			$userid = Input::get('userid');
-			$username = Input::get('user_name');
+			// $userid = Input::get('userid');
+			// $username = Input::get('user_name');
 			$add_time = time();
 			$sql = "insert into user_signon(user_id,user_name,add_time) values(null,'1111','11111','$add_time')";
 			$res = DB::insert($sql);

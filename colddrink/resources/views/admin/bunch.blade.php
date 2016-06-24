@@ -109,15 +109,16 @@
 		//     }
 		// });
 		// alert(accuracy);
-		var userid = $("#userid").val();
+		// var userid = $("#userid").val();
 		// alert(userid);
-		var user_name = $("#username").val();
+		// var user_name = $("#username").val();
 		var url = "sign_on";
-		var data = {'userid':userid,'user_name':user_name};
-		$.post(url,data,function(res){
+		// var data = {'userid':userid,'user_name':user_name};
+		$.post(url,function(res){
 				if(res == 1)
 				{
-					$(".weui_icon_area").css('display','block');
+					alert(1);
+					// $(".weui_icon_area").css('display','block');
 					// setTimeout(function(){//定时器 
 					// 	$(".weui_icon_area").css("display","none");//将图片的display属性设置为none
 					// 	},
