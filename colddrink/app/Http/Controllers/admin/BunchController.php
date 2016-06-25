@@ -69,24 +69,27 @@
 				$limit_timer = strtotime('8:00:00');
 				$last_minute = strtotime('16:00:00');
 				echo $limit_timer;
-				if($user_id == $userid && $add_time-$timer<180 && $minute>$limit_timer && $minute<$last_minute)
-				{
-					echo 2;
-				}
 			}
-			$sql = "insert into user_signon(user_id,user_name,add_time) values('$userid','$username','$add_time')";
-			$res = DB::insert($sql);
-			if($res)
+			if($user_id == $userid && $add_time-$timer<180 && $minute>$limit_timer && $minute<$last_minute)
 			{
-				$sql = "update user_signon set user_status = 1";
-				$re = DB::update($sql);
-				if($re)
+				echo 2;
+			}
+			else
+			{	
+				$sql = "insert into user_signon(user_id,user_name,add_time) values('$userid','$username','$add_time')";
+				$res = DB::insert($sql);
+				if($res)
 				{
-					echo 1;
-				}
-				else
-				{
-					echo 0;
+					$sql = "update user_signon set user_status = 1";
+					$re = DB::update($sql);
+					if($re)
+					{
+						echo 1;
+					}
+					else
+					{
+						echo 0;
+					}
 				}
 			}
 			else
