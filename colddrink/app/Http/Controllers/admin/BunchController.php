@@ -57,42 +57,42 @@
 			$userid = Input::get('userid');
 			$username = Input::get('user_name');
 			$add_time = time();
-			$sql = "select user_id,add_time from user_signon where user_id = '$user_id'";
-			$ars = DB::select($sql);
+			// $sql = "select user_id,add_time from user_signon where user_id = '$user_id'";
+			// $ars = DB::select($sql);
 			// $new_time = date('Y-m-d H:i:s',$add_time);
-			print_r($ars);die;
+			// print_r($ars);die;
 			// $minute = date("H:i:s",$add_time);
-			foreach($ars as $key=>$val)
+			// foreach($ars as $key=>$val)
+			// {
+			// 	$timer= $val['add_time'];
+			// 	$user_id = $val['user_id'];
+			// 	$minute = strtotime(date('H:i:s',$timer));
+			// 	$limit_timer = strtotime('8:00:00');
+			// 	$last_minute = strtotime('16:00:00');
+			// 	// echo $limit_timer;
+			// }
+			// if($user_id == $userid && $add_time-$timer<180 && $minute>$limit_timer && $minute<$last_minute)
+			// {
+			// 	echo 2;
+			// }
+			// else
+			// {	
+			$sql = "insert into user_signon(user_id,user_name,add_time) values('$userid','$username','$add_time')";
+			$res = DB::insert($sql);
+			if($res)
 			{
-				$timer= $val['add_time'];
-				$user_id = $val['user_id'];
-				$minute = strtotime(date('H:i:s',$timer));
-				$limit_timer = strtotime('8:00:00');
-				$last_minute = strtotime('16:00:00');
-				// echo $limit_timer;
-			}
-			if($user_id == $userid && $add_time-$timer<180 && $minute>$limit_timer && $minute<$last_minute)
-			{
-				echo 2;
-			}
-			else
-			{	
-				$sql = "insert into user_signon(user_id,user_name,add_time) values('$userid','$username','$add_time')";
-				$res = DB::insert($sql);
-				if($res)
+				$sql = "update user_signon set user_status = 1";
+				$re = DB::update($sql);
+				if($re)
 				{
-					$sql = "update user_signon set user_status = 1";
-					$re = DB::update($sql);
-					if($re)
-					{
-						echo 1;
-					}
-					else
-					{
-						echo 0;
-					}
+					echo 1;
+				}
+				else
+				{
+					echo 0;
 				}
 			}
+			// }
 		}
 		/**
 		*获取accessToken
