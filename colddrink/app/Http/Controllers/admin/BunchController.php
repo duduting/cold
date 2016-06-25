@@ -67,10 +67,11 @@
 				$user_id = $val['user_id'];
 				$minute = strtotime(date('H:i:s',$timer));
 				$limit_timer = strtotime('8:00:00');
-				echo $limit_timer;die;
-				if($user_id == $userid && $add_time-$timer<180 && $minute>)
+				$last_minute = strtotime('16:00:00');
+				echo $limit_timer;
+				if($user_id == $userid && $add_time-$timer<180 && $minute>$limit_timer && $minute<$last_minute)
 				{
-					echo "<script>alert('您已经签到！');</script>";die;
+					echo 2;
 				}
 			}
 			$sql = "insert into user_signon(user_id,user_name,add_time) values('$userid','$username','$add_time')";
