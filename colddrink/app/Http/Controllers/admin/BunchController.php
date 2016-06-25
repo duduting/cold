@@ -60,6 +60,7 @@
 			$sql = "select user_id,add_time from user_signon where user_id = '$user_id'";
 			$ars = DB::select($sql);
 			// $new_time = date('Y-m-d H:i:s',$add_time);
+			print_r($ars);die;
 			// $minute = date("H:i:s",$add_time);
 			foreach($ars as $key=>$val)
 			{
