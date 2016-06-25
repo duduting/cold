@@ -68,7 +68,7 @@
 				$minute = strtotime(date('H:i:s',$timer));
 				$limit_timer = strtotime('8:00:00');
 				$last_minute = strtotime('16:00:00');
-				echo $limit_timer;
+				// echo $limit_timer;
 			}
 			if($user_id == $userid && $add_time-$timer<180 && $minute>$limit_timer && $minute<$last_minute)
 			{
@@ -91,10 +91,6 @@
 						echo 0;
 					}
 				}
-			}
-			else
-			{
-				echo "<script>alert('签到失败');</script>";
 			}
 		}
 		/**
